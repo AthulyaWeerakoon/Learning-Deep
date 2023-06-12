@@ -20,10 +20,11 @@ model.add(Dense(50, activation='relu'))
 model.add(Dense(1, input_shape=(1,)))
 
 model.compile(optimizer='adam', loss='mean_squared_error')
-model.fit(predictors_z, target, validation_split=0.3, epochs=100, verbose=2)
+model.fit(predictors_z, target, validation_split=0.3, epochs=100, verbose=1)
 
 extracted_row = concrete_data.iloc[:2]
 predict_for = extracted_row[extracted_row.columns[extracted_row.columns != 'Strength']]
-predictions = model.predict(predict_for)
+predict_for_z = (predict_for - predictors.mean())/predictors.std()
+predictions = model.predict(predict_for_z)
 
 print(predictions)
