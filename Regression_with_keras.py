@@ -1,20 +1,29 @@
-import keras as ker
+import keras as kr
+import pandas as pd
+import numpy as np
 from keras.models import Sequential
 from keras.layers import Dense
 
+concrete_data = pd.read_csv('https://s3-api.us-geo.objectstorage.softlayer.net/cf-courses-data/CognitiveClass'
+                            '/DL0101EN/labs/data/concrete_data.csv')
+concrete_data.head()
+
 model = Sequential()
 
-n_cols = 1
-predictors = [0, 10, 20, 30, 40, 50, 60, 70, 80]
-target = [0, 0.14, 0.18, 0.26, 0.3, 0.5, 0.56, 0.64, 0.78]
+predictors = concrete_data[concrete_data.columns[concrete_data.columns != 'Strength']]
+target = concrete_data['Strength']
+predictors_z = (predictors - predictors.mean())/predictors.std()
+n_cols = predictors_z.shape[1]
 
-model.add(Dense(4, activation='relu', input_shape=(1,)))
-model.add(Dense(4, activation='relu'))
-model.add(Dense(1))
+model.add(Dense(50, activation='relu', input_shape=(n_cols,)))
+model.add(Dense(50, activation='relu'))
+model.add(Dense(1, input_shape=(1,)))
 
-model.compile(optimizer='adan', loss='mean_squared_error')
-model.fit(predictors, target)
+model.compile(optimizer='adam', loss='mean_squared_error')
+model.fit(predictors_z, target, validation_split=0.3, epochs=100, verbose=2)
 
-predictions = model.predict(90)
+extracted_row = concrete_data.iloc[:2]
+predict_for = extracted_row[extracted_row.columns[extracted_row.columns != 'Strength']]
+predictions = model.predict(predict_for)
 
 print(predictions)
