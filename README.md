@@ -24,10 +24,10 @@ This project repository is designed to organize and track the development of var
 [This](https://github.com/AthulyaWeerakoon/Learning-Deep/blob/main/Classification_with_keras.py) is a simple python program that classifies using the mnist handwritten number dataset
 
 ### Classification Using CNN with Keras
-[This](https://github.com/AthulyaWeerakoon/Learning-Deep/blob/main/CNNs_with_keras.py) is the same as the earlier program, but instead of using a dense layer of size 28x28 it uses convolutional and poolin layers.
+[This](https://github.com/AthulyaWeerakoon/Learning-Deep/blob/main/CNNs_with_keras.py) is the same as the earlier program, but instead of using a dense layer of size 28x28 it uses convolutional and pooling layers.
 
 ### Actor critic reinforcement with Keras
 [This](https://github.com/AthulyaWeerakoon/Learning-Deep/blob/main/Actor_critic_reinforcement.py) is an incomplete implementation of a deep actor critic reinforcement learning model attempting to face the cart-pole problem. Required opengym library to run the simulations.
 
 ### Simple image caption generator
-[This](https://github.com/AthulyaWeerakoon/Learning-Deep/blob/main/Simple%20Image%20Caption%20Gen/ImageCaptionGenerator.ipynb) is a simple image caption generator model (a show and tell model) with encoder and decoder models utilizing a pretrained ResNET feature extractor. Tensorflow ArtificialDataset is used to pipeline the training process and is set up to be hyperparametrically tuned using a wandb sweep.
+[This](https://github.com/AthulyaWeerakoon/Learning-Deep/blob/main/Simple%20Image%20Caption%20Gen/ImageCaptionGenerator.ipynb) is a simple image caption generator model (a show and tell model) with encoder and decoder models utilizing a pretrained ResNET feature extractor. Tensorflow ArtificialDataset is used to pipeline the training process and is set up to be hyperparametrically tuned using a wandb sweep. Project report can be accessed [here](https://www.linkedin.com/in/athulya-weerakoon/details/projects/) in this linked-in profile (look under the media files for the image caption generator project).
